@@ -1,0 +1,7 @@
+{
+  "port": 9090,
+  "files": ["./production/**/*.{html,htm,css,js}"],
+  "server": {
+    "baseDir": "./production"
+  }
+}

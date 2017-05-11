@@ -1,0 +1,77 @@
+{
+  "name": "angular4-aot-jit",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "init": "npm install",
+    "clean": "gulp clean",
+    "compile:aot": "node_modules/.bin/ngc -p tsconfig-aot.json",
+    "compile-ts:aot": "node_modules/.bin/tsc --p tsconfig-aot.json",
+    "build:aot": "gulp copy-aot-index && gulp compile-sass && gulp copy-aot-libraries",
+    "rollup:aot": "node_modules/.bin/rollup -c rollup-config.js",
+    "serve:aot": "lite-server -c lite-aot.json",
+    "production": "npm run compile:aot && npm run compile-ts:aot && npm run build:aot && npm run rollup:aot && npm run serve:aot",
+    "build:jit": "gulp copy-jit-index",
+    "compile-sass:jit": "gulp compile-sass",
+    "compile-ts:jit": "node_modules/.bin/tsc -w --p tsconfig-jit.json",
+    "dev-server:jit": "lite-server -c lite-jit.json",
+    "copy-processs:jit": "gulp watch",
+    "asyncproccess:jit": "concurrently --kill-others \"npm run compile-ts:jit\" \"npm run dev-server:jit\" \"npm run copy-processs:jit\"",
+    "dev": "npm run build:jit && npm run compile-sass:jit  && npm run asyncproccess:jit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vidate/Angular4-AoT-JiT"
+  },
+  "keywords": [
+    "Angular4",
+    "aot",
+    "jit"
+  ],
+  "author": "Piotr Juroszek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vidate/Angular4-AoT-JiT/issues"
+  },
+  "homepage": "https://github.com/Vidate/Angular4-AoT-JiT#readme",
+  "dependencies": {
+    "@angular/animations": "4.1.2",
+    "@angular/common": "4.1.2",
+    "@angular/core": "4.1.2",
+    "@angular/forms": "4.1.2",
+    "@angular/http": "4.1.2",
+    "@angular/platform-browser": "4.1.2",
+    "@angular/platform-browser-dynamic": "4.1.2",
+    "@angular/platform-server": "4.1.2",
+    "@angular/router": "4.1.2",
+    "@angular/upgrade": "4.1.2",
+    "bootstrap": "3.3.7",
+    "core-js": "2.4.1",
+    "rxjs": "5.4.0",
+    "zone.js": "0.8.10"
+  },
+  "devDependencies": {
+    "@angular/compiler": "4.1.2",
+    "@types/core-js": "0.9.41",
+    "@types/node": "7.0.18",
+    "@types/typescript": "2.0.0",
+    "@types/zone.js": "0.5.12",
+    "colors": "1.1.2",
+    "concurrently": "3.4.0",
+    "gulp": "3.9.1",
+    "gulp-cssmin": "0.1.7",
+    "gulp-rename": "1.2.2",
+    "gulp-sass": "3.1.0",
+    "lite-server": "2.3.0",
+    "rimraf": "2.6.1",
+    "rollup": "0.41.6",
+    "rollup-plugin-commonjs": "8.0.2",
+    "rollup-plugin-node-resolve": "3.0.0",
+    "rollup-plugin-uglify": "1.0.2",
+    "systemjs": "",
+    "ts-node": "3.0.4",
+    "tslint": "5.2.0",
+    "typescript": "2.3.2"
+  }
+}

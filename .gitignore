@@ -1,0 +1,10 @@
+node_modules/
+typings/
+npm-debug.log
+src/**/*.js
+src/**/*.js.map
+src/**/*.css
+src/**/*.css.min
+aot/
+production/
+index.html

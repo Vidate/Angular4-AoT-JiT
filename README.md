@@ -1,2 +1,1 @@
-# Angular4-AoT-JiT
-Base project for angular 4 with aot and jit
+# angular 4 base project for development
